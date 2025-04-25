@@ -5,7 +5,7 @@ import About from './components/About';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
-import CaseStudies from './components/CaseStudies';
+// import CaseStudies from './components/CaseStudies';
 import Footer from './components/Footer';
 import './styles/styles.css';
 
@@ -18,7 +18,7 @@ function App() {
       <Education />
       <Experience />
       <Projects />
-      <CaseStudies />
+      {/* <CaseStudies /> */}
       <Footer />
     </div>
   );

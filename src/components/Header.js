@@ -18,7 +18,7 @@ function Header() {
             <li><a href="#education" onClick={() => setIsMobileMenuOpen(false)}>Education</a></li>
             <li><a href="#experience" onClick={() => setIsMobileMenuOpen(false)}>Experience</a></li>
             <li><a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a></li>
-            <li><a href="#case-studies" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</a></li>
+            {/* <li><a href="#case-studies" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</a></li> */}
             <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
           </ul>
         </nav>

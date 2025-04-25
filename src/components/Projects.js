@@ -6,7 +6,7 @@ function Projects() {
   const projectsData = [
     {
       id: 1,
-      title: 'E-commerce Website',
+      title: 'Nxt Watch',
       category: 'Web Development',
       image: '/api/placeholder/400/300',
       description: 'Developed a full-stack e-commerce website with React, Node.js, and MongoDB. Features include user authentication, product listings, cart functionality, and payment integration.',
@@ -30,7 +30,7 @@ function Projects() {
     }
   ];
   
-  const filters = ['All', 'Web Development', 'Mobile App'];
+  const filters = ['All', 'Web Development', 'UiPath Apps'];
   
   const filteredProjects = activeFilter === 'All'
     ? projectsData
