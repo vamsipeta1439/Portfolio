@@ -44,7 +44,7 @@ function Footer() {
           <div className="footer-info">
             <h3>Contact Information</h3>
             <ul>
-              <li>petavamsi2001@example.com</li>
+              <li>petavamsi2001@gmail.com</li>
               <li>9100732076</li>
               <li>Cuddapah, Ap-516289, India</li>
             </ul>
