@@ -7,7 +7,7 @@ function Education() {
         institution: 'NxtWave CCBP 4.0 Intensive Program',
         course: 'MERN Stack Development',
         year: '2022 - 2023',
-        grade: 'Distinction'
+        grade: 'A+'
       },
     {
       id: 2,

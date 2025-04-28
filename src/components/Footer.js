@@ -44,9 +44,9 @@ function Footer() {
           <div className="footer-info">
             <h3>Contact Information</h3>
             <ul>
-              <li>john.doe@example.com</li>
-              <li>+1 (123) 456-7890</li>
-              <li>San Francisco, CA, USA</li>
+              <li>petavamsi2001@example.com</li>
+              <li>9100732076</li>
+              <li>Cuddapah, Ap-516289, India</li>
             </ul>
           </div>
           
@@ -112,7 +112,7 @@ function Footer() {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2025 John Doe. All Rights Reserved.</p>
+          <p>&copy; 2025 vamsi peta. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
