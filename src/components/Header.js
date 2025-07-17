@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { HiOutlineBars3BottomRight } from "react-icons/hi2";
+import { IoMdClose } from "react-icons/io";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,10 +24,13 @@ function Header() {
             <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
           </ul>
         </nav>
-        <div className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
+        {/* <div className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
           <span></span>
           <span></span>
           <span></span>
+        </div> */}
+        <div className='mobile-menu-btn' onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ?  <IoMdClose /> : <HiOutlineBars3BottomRight /> }
         </div>
       </div>
     </header>

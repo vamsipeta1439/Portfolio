@@ -46,6 +46,7 @@ section {
 .header {
   position: fixed;
   width: 100%;
+  max-width: 100vw;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -95,7 +96,7 @@ section {
   cursor: pointer;
 }
 
-.mobile-menu-btn span {
+/* .mobile-menu-btn span {
   width: 100%;
   height: 3px;
   background-color: #333;
@@ -112,14 +113,14 @@ section {
 
 .mobile-menu-btn.active span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
-}
+} */
 
 /* Banner Styles */
 .banner {
   height: 100vh;
   display: flex;
   align-items: flex-end;
-  background: linear-gradient(135deg, #484e4e 0%, #426da5 100%);
+  background: linear-gradient(to right, #e0f7fa, #80deea);
   padding-top: 80px;
 }
 
@@ -166,10 +167,13 @@ section {
 .btn {
   padding: 12px 30px;
   border-radius: 30px;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
+  width:100%;
+ 
 }
 
 .btn-primary {
@@ -560,19 +564,33 @@ section {
   
   /* Responsive Styles */
   @media (max-width: 992px) {
-    .banner-container,
-    .about-content {
-      flex-direction: column;
-      text-align: center;
+    .banner{
+      padding-top:40px;
     }
-    
+
     .banner-content {
       padding-right: 0;
-      margin-bottom: 40px;
+      margin-bottom: 10px;
+    }
+
+    .banner-content h1 {
+      font-size: 2.5rem;
     }
     
-    .banner-buttons {
-      justify-content: center;
+    .banner-content .profession {
+      font-size: 1.5rem;
+    }
+
+    .banner-buttons{
+      justify-content: flex-start;
+    }
+
+    .btn{
+      font-size:0.8rem;
+    }
+
+    .banner-image img {
+      max-width: 300px;
     }
     
     .about-image {
@@ -636,7 +654,7 @@ section {
     }
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 768px) { 
     .section-title {
       font-size: 2rem;
     }
@@ -646,6 +664,7 @@ section {
       top: 70px;
       left: -100%;
       width: 100%;
+      max-width: 100vw;
       background: #fff;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
@@ -655,7 +674,7 @@ section {
     .nav-menu.active {
       left: 0;
     }
-    
+     
     .nav-menu ul {
       flex-direction: column;
       align-items: center;
@@ -669,12 +688,11 @@ section {
       display: flex;
     }
     
-    .banner-content h1 {
-      font-size: 2.5rem;
-    }
-    
-    .banner-content .profession {
-      font-size: 1.5rem;
+ .banner-container,
+    .about-content {
+      flex-direction:column;
+      text-align: center;
+      gap:15px;
     }
     
     .banner-image img {

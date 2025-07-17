@@ -52,7 +52,7 @@ function Banner() {
     <section id="home" className="banner">
       <div className="container banner-container">
         <div className="banner-content">
-          <h1>Vamshi Peta</h1>
+          <h1>Vamsi Peta</h1>
           <h2 className={`profession ${showCursor ? 'with-cursor' : ''}`}>{professionText}</h2>
           <div className="banner-buttons">
             <a href="#contact" className="btn btn-primary">Contact Me</a>
