@@ -14,14 +14,14 @@ function Education() {
       institution: 'Sri Sai College of IT & Management',
       course: 'MCA - Master of Computer Applications',
       year: '2022 - 2024',
-      grade: '8.0 GPA'
+      grade: '8.12 CGPA'
     },
     {
       id: 3,
       institution: 'Sri Govindaraja Swamy Arts College',
       course: 'Bsc Computer Science',
       year: '2019 - 2022',
-      grade: '8.90 GPA'
+      grade: '8.90 CGPA'
     },
   ];
   
