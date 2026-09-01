@@ -2,25 +2,11 @@ import React from 'react';
 
 function Experience() {
   const experienceData = [
-    {id: 4,
-     title: 'Junior Software Engineer',
+    {id: 2,
+     title: 'Software Engineer',
      company: 'ConsuleventInc',
      period: 'June 2025 - Present',
      description: 'Currently Working on the internal project using Wordpress and JavaScript.Looking forward to work on the Client Project with any technologies like Mern stack or Uipath.' 
-    },
-    {
-      id: 3,
-      title: 'Junior Software Engineer',
-      company: 'Altumind Global Private Limited',
-      period: 'Nov 2024 - May 2025',
-      description: 'Completed the development of an internal project using Wordpress and JavaScript.Worked on the Client Project Form Energy using UiPath Excel activities and UiPath Apps.'
-    },
-    {
-      id: 2,
-      title: 'Trainee Software Engineer',
-      company: 'Altumind Global Private Limited',
-      period: 'Apr 2024 - Nov 2024',
-      description: 'Trained in the RPA UiPath with VB.Net and UiPath Apps.Worked on the excel extraction and data manipulation using UiPath and VB.Net.'
     },
     {
       id: 1,
