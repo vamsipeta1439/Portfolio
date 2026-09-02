@@ -1,36 +1,80 @@
-import React, { useState } from 'react';
-import { HiOutlineBars3BottomRight } from "react-icons/hi2";
-import { IoMdClose } from "react-icons/io";
+import React, { useEffect, useState } from 'react';
+import { HiOutlineBars3BottomRight } from 'react-icons/hi2';
+import { IoMdClose } from 'react-icons/io';
+import { FiGithub, FiLinkedin, FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from '../context/ThemeContext';
+import siteConfig from '../data/siteConfig';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
       <div className="container header-container">
-        <div className="logo">Portfolio</div>
-        <nav className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+        <a href="#home" className="logo" onClick={closeMenu}>
+          {siteConfig.name}
+        </a>
+
+        <nav className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`} aria-label="Primary">
           <ul>
-            <li><a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
-            <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
-            <li><a href="#education" onClick={() => setIsMobileMenuOpen(false)}>Education</a></li>
-            <li><a href="#experience" onClick={() => setIsMobileMenuOpen(false)}>Experience</a></li>
-            <li><a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a></li>
-            {/* <li><a href="#case-studies" onClick={() => setIsMobileMenuOpen(false)}>Case Studies</a></li> */}
-            <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
+            {siteConfig.nav.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} onClick={closeMenu}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
-        {/* <div className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div> */}
-        <div className='mobile-menu-btn' onClick={toggleMobileMenu}>
-        {isMobileMenuOpen ?  <IoMdClose /> : <HiOutlineBars3BottomRight /> }
+
+        <div className="header-actions">
+          <a
+            href={siteConfig.links.github}
+            className="icon-link"
+            aria-label="GitHub profile"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiGithub />
+          </a>
+          <a
+            href={siteConfig.links.linkedin}
+            className="icon-link"
+            aria-label="LinkedIn profile"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiLinkedin />
+          </a>
+          <button
+            type="button"
+            className="icon-link theme-toggle"
+            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            onClick={toggleTheme}
+          >
+            {theme === 'dark' ? <FiSun /> : <FiMoon />}
+          </button>
+
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          >
+            {isMobileMenuOpen ? <IoMdClose /> : <HiOutlineBars3BottomRight />}
+          </button>
         </div>
       </div>
     </header>

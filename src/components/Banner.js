@@ -1,66 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { FiGithub, FiLinkedin, FiMail, FiArrowRight } from 'react-icons/fi';
+import siteConfig from '../data/siteConfig';
+import useReveal from '../hooks/useReveal';
 
 function Banner() {
-  const [professionText, setProfessionText] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
-  
-  const professions = ['Junior Software Engineer'];
-
-  useEffect(() => {
-    let currentProfessionIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;   
-    
-    const type = () => {
-      const currentProfession = professions[currentProfessionIndex];
-      
-      if (isDeleting) {
-        setProfessionText(currentProfession.substring(0, currentCharIndex - 1));
-        currentCharIndex--;
-        typingSpeed = 50;
-      } else {
-        setProfessionText(currentProfession.substring(0, currentCharIndex + 1));
-        currentCharIndex++;
-        typingSpeed = 100;
-      }
-      
-      if (!isDeleting && currentCharIndex === currentProfession.length) {
-        // Pause at the end of typing
-        isDeleting = true;
-        typingSpeed = 1000;
-      } else if (isDeleting && currentCharIndex === 0) {
-        isDeleting = false;
-        currentProfessionIndex = (currentProfessionIndex + 1) % professions.length;
-        typingSpeed = 500;
-      }
-    };
-    
-    const typingInterval = setInterval(type, typingSpeed);
-    const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-    
-    return () => {
-      clearInterval(typingInterval);
-      clearInterval(cursorInterval);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const revealRef = useReveal();
 
   return (
-    <section id="home" className="banner">
-      <div className="container banner-container">
-        <div className="banner-content">
-          <h1>Vamsi Peta</h1>
-          <h2 className={`profession ${showCursor ? 'with-cursor' : ''}`}>{professionText}</h2>
-          <div className="banner-buttons">
-            <a href="#contact" className="btn btn-primary">Contact Me</a>
-            <a href="#projects" className="btn btn-secondary">View Projects</a>
-          </div>
+    <section id="home" className="hero">
+      <div className="container hero-container reveal" ref={revealRef}>
+        <span className="mono hero-tag">AI_AUTOMATION · FULL_STACK · ENTERPRISE</span>
+
+        <h1 className="hero-heading">{siteConfig.heroHeading}</h1>
+
+        <p className="hero-subtext">{siteConfig.heroSubtext}</p>
+
+        <p className="hero-role">
+          {siteConfig.role} <span className="hero-role-at">@</span> {siteConfig.companyShort}
+        </p>
+
+        <div className="hero-actions">
+          <a href="#work" className="btn btn-primary">
+            View My Work <FiArrowRight aria-hidden="true" />
+          </a>
+          {/* <a
+            href={siteConfig.links.github}
+            className="btn btn-secondary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiGithub aria-hidden="true" /> GitHub
+          </a> */}
+          <a
+            href={siteConfig.links.linkedin}
+            className="btn btn-secondary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiLinkedin aria-hidden="true" /> LinkedIn
+          </a>
+          <a href="#contact" className="btn btn-secondary">
+            <FiMail aria-hidden="true" /> Contact
+          </a>
         </div>
-        <div className="banner-image">
-          <img src="portfolio img1.png" alt="Profile" />
+
+        <div className="hero-metrics">
+          {siteConfig.impactMetrics.map((metric) => (
+            <div className="hero-metric" key={metric.label}>
+              <span className="hero-metric-value">{metric.value}</span>
+              <span className="hero-metric-label">{metric.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,56 +1,30 @@
 import React from 'react';
+import education from '../data/education';
+import useReveal from '../hooks/useReveal';
 
 function Education() {
-  const educationData = [
-    {
-        id: 1,
-        institution: 'NxtWave CCBP 4.0 Intensive Program',
-        course: 'MERN Stack Development',
-        year: '2022 - 2023',
-        grade: 'A+'
-      },
-    {
-      id: 2,
-      institution: 'Sri Sai College of IT & Management',
-      course: 'MCA - Master of Computer Applications',
-      year: '2022 - 2024',
-      grade: '8.12 CGPA'
-    },
-    {
-      id: 3,
-      institution: 'Sri Govindaraja Swamy Arts College',
-      course: 'Bsc Computer Science',
-      year: '2019 - 2022',
-      grade: '8.90 CGPA'
-    },
-  ];
-  
+  const revealRef = useReveal();
+
   return (
     <section id="education" className="education">
       <div className="container">
-        <h2 className="section-title">Education</h2>
-        <table className="education-table">
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>College/Institution</th>
-              <th>Course</th>
-              <th>Year of Study</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody>
-            {educationData.map(education => (
-              <tr key={education.id}>
-                <td>{education.id}</td>
-                <td>{education.institution}</td>
-                <td>{education.course}</td>
-                <td>{education.year}</td>
-                <td>{education.grade}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="section-header reveal" ref={revealRef}>
+          <span className="eyebrow">EDUCATION</span>
+          <h2 className="section-heading">Education</h2>
+        </div>
+
+        <div className="education-list">
+          {education.map((item) => (
+            <div className="education-item" key={item.id}>
+              <div className="education-year mono">{item.year}</div>
+              <div className="education-details">
+                <h3>{item.institution}</h3>
+                <p>{item.course}</p>
+              </div>
+              <div className="education-grade">{item.grade}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
