@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import {FiLinkedin, FiMail } from 'react-icons/fi';
 import siteConfig from '../data/siteConfig';
 
 function Footer() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiMail, FiLinkedin } from 'react-icons/fi';
 import siteConfig from '../data/siteConfig';
 import useReveal from '../hooks/useReveal';
 
